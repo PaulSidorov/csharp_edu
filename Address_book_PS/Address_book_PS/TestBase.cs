@@ -16,19 +16,7 @@ namespace Address_book_PS
         private StringBuilder verificationErrors;
         protected string baseURL;
 
-        [TearDown]
-        public void TeardownTest()
-        {
-            try
-            {
-                driver.Quit();
-            }
-            catch (Exception)
-            {
-                // Ignore errors if unable to close the browser
-            }
-           
-        }
+        
 
         [SetUp]
         public void SetupTest()
@@ -38,6 +26,18 @@ namespace Address_book_PS
             verificationErrors = new StringBuilder();
         }
 
+
+        [TearDown]
+        public void TeardownTest()
+        {
+            try
+            {
+                driver.Quit();
+            }
+            catch (Exception)
+            {
+            }
+        }
 
         protected void Login(AccountData account)
         {
