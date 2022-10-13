@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Address_book_PS
 {
-    internal class GroupData
+    public class GroupData
     {
         public string Name { get; set; } 
         public string Header { get; set; }
