@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Address_book_PS.model;
 
-namespace Address_book_PS.appmanager
+
+namespace Address_book_PS
 {
     public class ContactHelper : HelperBase
     {

@@ -1,5 +1,4 @@
-﻿using Address_book_PS.appmanager;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;

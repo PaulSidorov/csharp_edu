@@ -2,8 +2,6 @@ using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using Address_book_PS.model;
-using Address_book_PS.tests;
 using NUnit.Framework;
 
 

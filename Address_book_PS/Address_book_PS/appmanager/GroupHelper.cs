@@ -1,5 +1,4 @@
-﻿using Address_book_PS.model;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,8 +34,6 @@ namespace Address_book_PS
 
             return this;
         }
-
-       
         
         public GroupHelper Create(GroupData group)
         {
@@ -50,7 +47,6 @@ namespace Address_book_PS
 
             return this;
         }
-        
         
         public GroupHelper CreateNewGroup()
         {

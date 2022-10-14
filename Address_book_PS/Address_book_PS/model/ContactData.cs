@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Address_book_PS.model
+namespace Address_book_PS
 {
     public class ContactData
     {

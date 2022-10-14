@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Address_book_PS.appmanager
+namespace Address_book_PS
 {
     public class NavigationHelper : HelperBase
     {

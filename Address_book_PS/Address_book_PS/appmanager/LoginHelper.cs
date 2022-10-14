@@ -1,12 +1,11 @@
-﻿using Address_book_PS.model;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Address_book_PS.appmanager
+namespace Address_book_PS
 {
     public class LoginHelper : HelperBase
     {
