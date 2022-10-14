@@ -1,110 +1,29 @@
-﻿using NUnit.Framework;
+﻿using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Address_book_PS.model;
 
-namespace Address_book_PS
+namespace Address_book_PS.appmanager
 {
-    public class TestBase
+    public class ContactHelper : HelperBase
     {
-        protected IWebDriver driver;
-        private StringBuilder verificationErrors;
-        protected string baseURL;
 
-        
-
-        [SetUp]
-        public void SetupTest()
+        public ContactHelper(AppManager manager) : base(manager)
         {
-            driver = new FirefoxDriver();
-            baseURL = "http://localhost:8080/addressbook/";
-            verificationErrors = new StringBuilder();
         }
 
-
-        [TearDown]
-        public void TeardownTest()
-        {
-            try
-            {
-                driver.Quit();
-            }
-            catch (Exception)
-            {
-            }
-        }
-
-        protected void Login(AccountData account)
-        {
-            driver.FindElement(By.Name("user")).Click();
-            driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys(account.Username);
-            driver.FindElement(By.Name("pass")).Click();
-            driver.FindElement(By.Name("pass")).Clear();
-            driver.FindElement(By.Name("pass")).SendKeys(account.Password);
-            driver.FindElement(By.XPath("//input[@value='Login']")).Click();
-        }
-
-
-        protected void Logout()
-        {
-            driver.FindElement(By.LinkText("Logout")).Click();
-        }
-
-
-        protected void OpenHomePage()
-        {
-            driver.Navigate().GoToUrl(baseURL);
-        }
-
-
-        protected void ReturnToGroupPage()
-        {
-            driver.FindElement(By.LinkText("group page")).Click();
-        }
-
-        protected void SubmitGroupCreation()
-        {
-            driver.FindElement(By.Name("submit")).Click();
-        }
-
-        protected void FillGroupData(GroupData group)
-        {
-            driver.FindElement(By.Name("group_name")).Click();
-            driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys(group.Name);
-            driver.FindElement(By.Name("group_header")).Click();
-            driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys(group.Header);
-            driver.FindElement(By.Name("group_footer")).Click();
-            driver.FindElement(By.Name("group_footer")).Clear();
-            driver.FindElement(By.Name("group_footer")).SendKeys(group.Footer);
-        }
-
-        protected void CreateNewGroup()
-        {
-            driver.FindElement(By.Name("new")).Click();
-        }
-
-        protected void OpenGroupPage()
-        {
-            driver.FindElement(By.LinkText("groups")).Click();
-        }
-
-
-
-
-        protected void SubmitContactCreation()
+        public ContactHelper SubmitContactCreation()
         {
             driver.FindElement(By.XPath("//div[@id='content']/form/input[21]")).Click();
+
+            return this;
         }
 
-        protected void FillContactData(ContactData contact)
+        public ContactHelper FillContactData(ContactData contact)
         {
             driver.FindElement(By.Name("firstname")).Click();
             driver.FindElement(By.Name("firstname")).Clear();
@@ -175,19 +94,8 @@ namespace Address_book_PS
             driver.FindElement(By.Name("notes")).Clear();
             driver.FindElement(By.Name("notes")).SendKeys(contact.Notes);
 
+            return this;
         }
 
-
-        public void ReturnToHomePage()
-        {
-            driver.FindElement(By.LinkText("home")).Click();
-
-        }
-
-        public void AddContact()
-        {
-            driver.FindElement(By.LinkText("add new")).Click();
-        }
-
-    }   
+    }
 }

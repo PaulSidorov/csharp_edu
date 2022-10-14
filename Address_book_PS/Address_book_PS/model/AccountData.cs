@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Address_book_PS
+namespace Address_book_PS.model
 {
-    
+
 
     public class AccountData
     {
@@ -15,8 +15,8 @@ namespace Address_book_PS
 
         public AccountData(string username, string password)
         {
-            this.Username = username;
-            this.Password = password;
+            Username = username;
+            Password = password;
         }
 
     }

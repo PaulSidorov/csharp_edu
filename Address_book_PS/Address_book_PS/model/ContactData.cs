@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Address_book_PS
+namespace Address_book_PS.model
 {
     public class ContactData
     {
@@ -15,16 +15,16 @@ namespace Address_book_PS
         public string Title { get; set; } = "";
         public string Company { get; set; } = "";
         public string Address { get; set; } = "";
-        public string TelHome { get; set; } = "";    
+        public string TelHome { get; set; } = "";
         public string TelMobile { get; set; } = "";
         public string TelWork { get; set; } = "";
         public string TelFax { get; set; } = "";
         public string Email { get; set; } = "";
         public string Email2 { get; set; } = "";
-        public string Email3  { get; set; } = "";
+        public string Email3 { get; set; } = "";
         public string Homepage { get; set; } = "";
         public string BirthDay { get; set; } = "";
-        public string BirthMonth  { get; set; } = "";
+        public string BirthMonth { get; set; } = "";
         public string BirthYear { get; set; } = "";
         public string AnniversaryDay { get; set; } = "";
         public string AnniversaryMonth { get; set; } = "";
@@ -35,5 +35,5 @@ namespace Address_book_PS
 
 
 
-}
+    }
 }

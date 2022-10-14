@@ -2,6 +2,8 @@ using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using Address_book_PS.model;
+using Address_book_PS.tests;
 using NUnit.Framework;
 
 
@@ -14,9 +16,8 @@ namespace Address_book_PS
         [Test]
         public void AddContactTest()
         {
-            OpenHomePage();
-            Login(new AccountData("admin", "secret"));
-            AddContact();
+           
+            appManager.Navigator.AddContact();
 
             ContactData contact = new ContactData()
             {
@@ -41,14 +42,14 @@ namespace Address_book_PS
                 AnniversaryDay = "5",
                 AnniversaryMonth = "March",
                 AnniversaryYear = "1977",
-                SecondaryAddress ="sec addr",
+                SecondaryAddress = "sec addr",
                 SecondaryTelHome = "home number",
                 Notes = "some notes"
-            };            
+            };
 
-            FillContactData(contact);
-            SubmitContactCreation();
-            ReturnToHomePage();
+            appManager.Contact.FillContactData(contact)
+                              .SubmitContactCreation();
+            appManager.Navigator.ReturnToHomePage();
         }
 
     }
