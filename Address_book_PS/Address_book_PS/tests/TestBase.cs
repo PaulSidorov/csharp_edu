@@ -10,21 +10,22 @@ namespace Address_book_PS
     public class TestBase
     {
 
-        protected AppManager appManager;
+        protected AppManager app;
 
         [SetUp]
         public void SetupTest()
         {
-            appManager = new AppManager();
-            appManager.Navigator.OpenHomePage();
-            appManager.Auth.Login(new AccountData("admin", "secret"));
+            app = new AppManager();
+            app.Navigator.OpenHomePage();
+            app.Auth.Login(new AccountData("admin", "secret"));
         }
 
         [TearDown]
         public void TeardownTest()
         {
-            appManager.Stop();
+            app.Stop();
         }
 
+       
     }
 }

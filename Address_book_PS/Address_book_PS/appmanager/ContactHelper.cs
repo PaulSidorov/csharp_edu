@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 
 namespace Address_book_PS
@@ -15,6 +16,23 @@ namespace Address_book_PS
         public ContactHelper(AppManager manager) : base(manager)
         {
         }
+
+
+        public ContactHelper InitContactUpdate(int number)
+        {
+            driver.FindElement(By.CssSelector("a[href = 'edit.php?id=" + (number).ToString() + "']")).Click();
+            
+            return this;
+        }
+
+        public ContactHelper SubmitContactUpdate()
+        {
+            driver.FindElement(By.Name("update")).Click();
+
+            return this;
+        }
+
+
 
         public ContactHelper SubmitContactCreation()
         {
@@ -94,6 +112,19 @@ namespace Address_book_PS
             driver.FindElement(By.Name("notes")).Clear();
             driver.FindElement(By.Name("notes")).SendKeys(contact.Notes);
 
+            return this;
+        }
+
+        public ContactHelper Check(int number)
+        {
+            driver.FindElement(By.XPath("//tr[" + (number+1).ToString() + "]/td/input")).Click();
+         
+            return this;
+        }
+
+        public ContactHelper Delete()
+        {
+            driver.FindElement(By.CssSelector("input[value='Delete']")).Click();
             return this;
         }
 

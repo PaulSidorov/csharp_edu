@@ -40,7 +40,7 @@ namespace Address_book_PS
 
             manager.Navigator.OpenGroupsPage();
 
-            CreateNewGroup();
+            InitCreateNewGroup();
             FillGroupData(group);
             SubmitGroupCreation();
             ReturnToGroupPage();
@@ -48,7 +48,7 @@ namespace Address_book_PS
             return this;
         }
         
-        public GroupHelper CreateNewGroup()
+        public GroupHelper InitCreateNewGroup()
         {
             driver.FindElement(By.Name("new")).Click();
 
@@ -61,5 +61,42 @@ namespace Address_book_PS
 
             return this;
         }
+
+        // первая группа, чекбокс  
+
+
+        public GroupHelper SelectGroup(int groupNumber)
+        {
+            driver.FindElement(By.XPath("//div[@id='content']/form/span[" + groupNumber.ToString() + "]/input")).Click();
+          
+
+            return this;
+        }
+
+        public GroupHelper InitGroupEditing()
+        {
+            driver.FindElement(By.Name("edit")).Click();
+
+            return this;
+        }
+
+
+        public GroupHelper SubmitGroupUdate()
+        {
+            driver.FindElement(By.Name("update")).Click();
+
+            return this;
+        }
+
+
+        public GroupHelper InitDeleteGroup()
+        {
+            driver.FindElement(By.Name("delete")).Click();
+
+            return this;
+        }
+        
+
+
     }
 }

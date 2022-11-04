@@ -60,7 +60,11 @@ namespace Address_book_PS
             get { return groupHelper; }
         }
 
-      
+       
+        public void AcceptDeletion()
+        {
+            driver.SwitchTo().Alert().Accept();
+        }
 
         public void Stop()
         {
