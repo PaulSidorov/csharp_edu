@@ -18,6 +18,19 @@ namespace Address_book_PS
         }
 
 
+       
+        public ContactHelper Edit(int number, ContactData contact)
+        {
+            Select(number);
+            InitContactUpdate(number);
+            FillContactData(contact);
+            SubmitContactUpdate();
+
+            return this;
+        }
+
+        
+        
         public ContactHelper InitContactUpdate(int number)
         {
             driver.FindElement(By.CssSelector("a[href = 'edit.php?id=" + (number).ToString() + "']")).Click();
@@ -115,7 +128,7 @@ namespace Address_book_PS
             return this;
         }
 
-        public ContactHelper Check(int number)
+        public ContactHelper Select(int number)
         {
             driver.FindElement(By.XPath("//tr[" + (number+1).ToString() + "]/td/input")).Click();
          

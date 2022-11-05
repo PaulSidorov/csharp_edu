@@ -34,7 +34,18 @@ namespace Address_book_PS
 
             return this;
         }
-        
+
+        public GroupHelper Edit(int groupNumber, GroupData group)
+        {
+            SelectGroup(groupNumber);
+            InitGroupEditing();
+            FillGroupData(group);
+            SubmitGroupUdate();
+
+            return this;
+        }
+
+
         public GroupHelper Create(GroupData group)
         {
 
@@ -62,7 +73,7 @@ namespace Address_book_PS
             return this;
         }
 
-        // первая группа, чекбокс  
+        
 
 
         public GroupHelper SelectGroup(int groupNumber)
@@ -81,6 +92,9 @@ namespace Address_book_PS
         }
 
 
+      
+
+
         public GroupHelper SubmitGroupUdate()
         {
             driver.FindElement(By.Name("update")).Click();
@@ -95,6 +109,7 @@ namespace Address_book_PS
 
             return this;
         }
+        
         
 
 

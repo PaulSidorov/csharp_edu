@@ -35,10 +35,7 @@ namespace Address_book_PS
             groupUpdated.Footer = "new group_footer";
 
             app.Navigator.OpenGroupsPage();
-            app.Group.SelectGroup(groupNumber)
-                     .InitGroupEditing()
-                     .FillGroupData(groupUpdated)
-                     .SubmitGroupUdate()
+            app.Group.Edit(groupNumber,groupUpdated)
                      .ReturnToGroupPage();
 
         }

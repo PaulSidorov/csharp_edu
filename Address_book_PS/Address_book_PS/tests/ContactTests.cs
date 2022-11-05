@@ -83,9 +83,7 @@ namespace Address_book_PS
                 Notes = "some notes"
             };
 
-            app.Contact.InitContactUpdate(contactNumber)
-                              .FillContactData(contact)
-                              .SubmitContactUpdate();
+            app.Contact.Edit(contactNumber, contact);
             app.Navigator.ReturnToHomePage();
         }
 
@@ -93,7 +91,7 @@ namespace Address_book_PS
         public void DeleteContactTest()
         {
             int orderNumber = 2;
-            app.Contact.Check(orderNumber)
+            app.Contact.Select(orderNumber)
                                .Delete();
 
             app.AcceptDeletion();
