@@ -90,7 +90,17 @@ namespace Address_book_PS
         [Test]
         public void DeleteContactTest()
         {
-            int orderNumber = 2;
+            int orderNumber = 1;
+
+            if (app.Contact.ContactExists() == false)
+            {
+                app.Navigator.AddContact();
+                app.Contact.FillContactData(new ContactData())
+                           .SubmitContactCreation();
+                app.Navigator.ReturnToHomePage();
+            }
+
+
             app.Contact.Select(orderNumber)
                                .Delete();
 

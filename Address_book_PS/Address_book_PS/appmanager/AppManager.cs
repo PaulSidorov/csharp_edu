@@ -11,7 +11,6 @@ namespace Address_book_PS
     public class AppManager
     {
         protected IWebDriver driver;
-        private StringBuilder verificationErrors;
         protected string baseURL;
 
         protected LoginHelper loginHelper;
@@ -19,18 +18,29 @@ namespace Address_book_PS
         protected ContactHelper contactHelper;
         protected GroupHelper groupHelper;
 
-        public AppManager()
+        private static AppManager instance;
+
+        private AppManager()
         {
             driver = new FirefoxDriver();
             baseURL = "http://localhost:8080/addressbook/";
-            verificationErrors = new StringBuilder();
 
             loginHelper = new LoginHelper(this);
             navigationHelper = new NavigationHelper(this, baseURL);
-            contactHelper = new ContactHelper(this);
+            contactHelper = new ContactHelper(this, baseURL);
             groupHelper = new GroupHelper(this);
 
         }
+        
+        public static AppManager GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new AppManager();
+            }
+            return instance;
+        }
+
 
         public IWebDriver Driver 
         {

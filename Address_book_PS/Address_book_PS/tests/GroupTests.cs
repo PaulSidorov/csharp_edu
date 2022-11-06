@@ -21,7 +21,7 @@ namespace Address_book_PS
             group.Footer = "group_footer";
 
             app.Group.Create(group);
-            app.Auth.Logout();
+          
         }
 
         [Test]
@@ -46,6 +46,14 @@ namespace Address_book_PS
         {
             int groupNumber = 1;
             app.Navigator.OpenGroupsPage();
+
+            if (app.Group.GroupExists() == false)
+            {
+                GroupData group = new GroupData();
+                group.Name = "group_for_deleting";
+                app.Group.Create(group);
+            }
+
             app.Group.SelectGroup(groupNumber)
                      .InitDeleteGroup()
                      .ReturnToGroupPage();

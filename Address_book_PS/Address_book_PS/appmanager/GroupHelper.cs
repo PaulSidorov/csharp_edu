@@ -68,6 +68,7 @@ namespace Address_book_PS
 
         public GroupHelper ReturnToGroupPage()
         {
+            Thread.Sleep(200);
             driver.FindElement(By.LinkText("group page")).Click();
 
             return this;
@@ -78,6 +79,9 @@ namespace Address_book_PS
 
         public GroupHelper SelectGroup(int groupNumber)
         {
+            
+            
+            
             driver.FindElement(By.XPath("//div[@id='content']/form/span[" + groupNumber.ToString() + "]/input")).Click();
           
 
@@ -109,8 +113,15 @@ namespace Address_book_PS
 
             return this;
         }
-        
-        
+
+
+        public bool GroupExists()
+        {
+            if (IsElementPresent(By.CssSelector(".group")))
+            { return true; }
+            else { return false; }
+        }
+
 
 
     }
