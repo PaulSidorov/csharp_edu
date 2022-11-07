@@ -54,8 +54,20 @@ namespace Address_book_PS
         public void ModifyContactTest()
         {
             int contactNumber = 1;
-            
-            ContactData contact = new ContactData()
+
+            if (app.Contact.ContactExists() == false)
+            {
+                ContactData contact1 = new ContactData();
+                contact1.FirstName = "test_name";
+                contact1.LastName = "test_surname";
+
+                app.Navigator.AddContact();
+                app.Contact.FillContactData(contact1)
+                           .SubmitContactCreation();
+                app.Navigator.ReturnToHomePage();
+            }
+
+                ContactData contact = new ContactData()
             {
                 FirstName = "New First_name",
                 MiddleName = "New Midname",
@@ -94,8 +106,12 @@ namespace Address_book_PS
 
             if (app.Contact.ContactExists() == false)
             {
+                ContactData contact = new ContactData();
+                contact.FirstName = "test_name";
+                contact.LastName = "test_surname";
+
                 app.Navigator.AddContact();
-                app.Contact.FillContactData(new ContactData())
+                app.Contact.FillContactData(contact)
                            .SubmitContactCreation();
                 app.Navigator.ReturnToHomePage();
             }

@@ -29,6 +29,14 @@ namespace Address_book_PS
         public void GroupUpdateTest()
         {
             int groupNumber = 1;
+
+            if (app.Group.GroupExists() == false)
+            {
+                GroupData group = new GroupData();
+                group.Name = "group_for_updating";
+                app.Group.Create(group);
+            }
+
             GroupData groupUpdated = new GroupData();
             groupUpdated.Name = "new group_name";
             groupUpdated.Header = "new group_header";

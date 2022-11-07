@@ -24,7 +24,6 @@ namespace Address_book_PS
        
         public ContactHelper Edit(int number, ContactData contact)
         {
-            Select(number);
             InitContactUpdate(number);
             FillContactData(contact);
             SubmitContactUpdate();
@@ -36,8 +35,8 @@ namespace Address_book_PS
         
         public ContactHelper InitContactUpdate(int number)
         {
-            
-            driver.FindElements(By.CssSelector("img[alt='Edit'"))[number].Click();
+
+            driver.FindElements(By.CssSelector("img[alt='Edit']"))[number-1].Click();
 
 
             return this;
